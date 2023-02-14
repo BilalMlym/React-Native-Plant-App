@@ -1,14 +1,17 @@
 import { StyleSheet, View } from "react-native";
 import React, { Component } from "react";
 
-import { Button, Block, Text } from "../components";
+import { Text, Block } from "../components";
 
 export default class Welcome extends Component {
+  static navigationOptions = {
+    header: null,
+  };
   render() {
     return (
-      <View>
+      <Block>
         <Text>Welcome</Text>
-      </View>
+      </Block>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import { AppLoading } from "expo";
 import { Asset } from "expo-asset";
@@ -59,9 +59,11 @@ export default class App extends React.Component {
     }
 
     return (
-      <Block white>
-        <Navigation />
-      </Block>
+      <View>
+        <Block white>
+          <Navigation />
+        </Block>
+      </View>
     );
   }
 }
