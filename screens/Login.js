@@ -6,7 +6,6 @@ import {
   StyleSheet,
 } from "react-native";
 
-import { Button, Block, Input, Text } from "../components";
 import { theme } from "../constants";
 
 const VALID_EMAIL = "contact@react-ui-kit.com";
