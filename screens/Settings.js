@@ -1,6 +1,13 @@
 import React, { Component } from "react";
-import { Image, StyleSheet, ScrollView, TypographyInput } from "react-native";
+import { Image, StyleSheet, ScrollView, TextInput } from "react-native";
 import Slider from "@react-native-community/slider";
+
+import Block from "../components/Block";
+import Button from "../components/Button";
+import Divider from "../components/Divider";
+import Switch from "../components/Switch";
+
+import Typography from "../components/Typography";
 
 import { theme, mocks } from "../constants";
 
@@ -18,9 +25,9 @@ class Settings extends Component {
     this.setState({ profile: this.props.profile });
   }
 
-  handleEdit(name, Typography) {
+  handleEdit(name, text) {
     const { profile } = this.state;
-    profile[name] = Typography;
+    profile[name] = text;
 
     this.setState({ profile });
   }
@@ -35,11 +42,9 @@ class Settings extends Component {
 
     if (editing === name) {
       return (
-        <TypographyInput
+        <TextInput
           defaultValue={profile[name]}
-          onChangeTypography={(Typography) =>
-            this.handleEdit([name], Typography)
-          }
+          onChangeText={(text) => this.handleEdit([name], text)}
         />
       );
     }

@@ -9,6 +9,8 @@ import Welcome from "./screens/Welcome";
 import Login from "./screens/Login";
 import SignUp from "./screens/SignUp";
 import Settings from "./screens/Settings";
+import Browse from "./screens/Browse";
+import Explore from "./screens/Explore";
 
 import { Asset } from "expo-asset";
 
@@ -21,7 +23,9 @@ export default function App() {
     return (
       <Stack.Navigator>
         <Stack.Screen name="Welcome" component={Welcome} />
-        <Stack.Screen name="Notifications" component={Login} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Browse" component={Browse} />
+        <Stack.Screen name="Explore" component={Explore} />
         <Stack.Screen name="Profile" component={SignUp} />
         <Stack.Screen name="Settings" component={Settings} />
       </Stack.Navigator>

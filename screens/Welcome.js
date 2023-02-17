@@ -250,7 +250,6 @@ class Welcome extends Component {
             <Typography center semibold white>
               Login
             </Typography>
-            <Typography>Login</Typography>
           </Button>
           <Button shadow onPress={() => navigation.navigate("SignUp")}>
             <Typography center semibold>
