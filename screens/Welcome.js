@@ -9,12 +9,14 @@ import {
   ScrollView,
 } from "react-native";
 
+import navigation from "react-native";
+
 import { Button } from "../components/Button";
 import { Block } from "../components/Block";
 import { Text } from "../components/Text";
 import { theme } from "../constants";
 
-export default function Welcome() {
+export default Welcome = ({ navigation }) => {
   return (
     <Block>
       <Block center bottom flex={0.4}>
@@ -49,7 +51,7 @@ export default function Welcome() {
       </Block>
     </Block>
   );
-}
+};
 
 const styles = StyleSheet.create({
   stepsContainer: {
