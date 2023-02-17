@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {
   Animated,
+  Text,
   Dimensions,
   Image,
   FlatList,
@@ -9,7 +10,8 @@ import {
   ScrollView,
 } from "react-native";
 
-import { Button, Block, Text } from "../components";
+import Block from "../components/Block";
+import Button from "../components/Button";
 import { theme } from "../constants";
 
 const { width, height } = Dimensions.get("window");
