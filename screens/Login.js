@@ -50,16 +50,18 @@ export default class Login extends Component {
     return (
       <KeyboardAvoidingView style={styles.login} behavior="padding">
         <Block padding={[0, theme.sizes.base * 2]}>
-          <Text h1 bold>
+          <Typography h1 bold>
             Login
-          </Text>
+          </Typography>
           <Block middle>
             <Input
               label="Email"
               error={hasErrors("email")}
               style={[styles.input, hasErrors("email")]}
               defaultValue={this.state.email}
-              onChangeText={(text) => this.setState({ email: text })}
+              onChangeTypography={(Typography) =>
+                this.setState({ email: Typography })
+              }
             />
             <Input
               secure
@@ -67,27 +69,29 @@ export default class Login extends Component {
               error={hasErrors("password")}
               style={[styles.input, hasErrors("password")]}
               defaultValue={this.state.password}
-              onChangeText={(text) => this.setState({ password: text })}
+              onChangeTypography={(Typography) =>
+                this.setState({ password: Typography })
+              }
             />
             <Button gradient onPress={() => this.handleLogin()}>
               {loading ? (
                 <ActivityIndicator size="small" color="white" />
               ) : (
-                <Text bold white center>
+                <Typography bold white center>
                   Login
-                </Text>
+                </Typography>
               )}
             </Button>
 
             <Button onPress={() => navigation.navigate("Forgot")}>
-              <Text
+              <Typography
                 gray
                 caption
                 center
-                style={{ textDecorationLine: "underline" }}
+                style={{ TypographyDecorationLine: "underline" }}
               >
                 Forgot your password?
-              </Text>
+              </Typography>
             </Button>
           </Block>
         </Block>

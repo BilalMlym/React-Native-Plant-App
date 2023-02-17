@@ -39,7 +39,7 @@ export default class SignUp extends Component {
         "Your account has been created",
         [
           {
-            text: "Continue",
+            Typography: "Continue",
             onPress: () => {
               navigation.navigate("Browse");
             },
@@ -58,9 +58,9 @@ export default class SignUp extends Component {
     return (
       <KeyboardAvoidingView style={styles.signup} behavior="padding">
         <Block padding={[0, theme.sizes.base * 2]}>
-          <Text h1 bold>
+          <Typography h1 bold>
             Sign Up
-          </Text>
+          </Typography>
           <Block middle>
             <Input
               email
@@ -68,14 +68,18 @@ export default class SignUp extends Component {
               error={hasErrors("email")}
               style={[styles.input, hasErrors("email")]}
               defaultValue={this.state.email}
-              onChangeText={(text) => this.setState({ email: text })}
+              onChangeTypography={(Typography) =>
+                this.setState({ email: Typography })
+              }
             />
             <Input
               label="Username"
               error={hasErrors("username")}
               style={[styles.input, hasErrors("username")]}
               defaultValue={this.state.username}
-              onChangeText={(text) => this.setState({ username: text })}
+              onChangeTypography={(Typography) =>
+                this.setState({ username: Typography })
+              }
             />
             <Input
               secure
@@ -83,27 +87,29 @@ export default class SignUp extends Component {
               error={hasErrors("password")}
               style={[styles.input, hasErrors("password")]}
               defaultValue={this.state.password}
-              onChangeText={(text) => this.setState({ password: text })}
+              onChangeTypography={(Typography) =>
+                this.setState({ password: Typography })
+              }
             />
             <Button gradient onPress={() => this.handleSignUp()}>
               {loading ? (
                 <ActivityIndicator size="small" color="white" />
               ) : (
-                <Text bold white center>
+                <Typography bold white center>
                   Sign Up
-                </Text>
+                </Typography>
               )}
             </Button>
 
             <Button onPress={() => navigation.navigate("Login")}>
-              <Text
+              <Typography
                 gray
                 caption
                 center
-                style={{ textDecorationLine: "underline" }}
+                style={{ TypographyDecorationLine: "underline" }}
               >
                 Back to Login
-              </Text>
+              </Typography>
             </Button>
           </Block>
         </Block>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, StyleSheet, ScrollView, TextInput } from "react-native";
+import { Image, StyleSheet, ScrollView, TypographyInput } from "react-native";
 import Slider from "@react-native-community/slider";
 
 import { theme, mocks } from "../constants";
@@ -18,9 +18,9 @@ class Settings extends Component {
     this.setState({ profile: this.props.profile });
   }
 
-  handleEdit(name, text) {
+  handleEdit(name, Typography) {
     const { profile } = this.state;
-    profile[name] = text;
+    profile[name] = Typography;
 
     this.setState({ profile });
   }
@@ -35,14 +35,16 @@ class Settings extends Component {
 
     if (editing === name) {
       return (
-        <TextInput
+        <TypographyInput
           defaultValue={profile[name]}
-          onChangeText={(text) => this.handleEdit([name], text)}
+          onChangeTypography={(Typography) =>
+            this.handleEdit([name], Typography)
+          }
         />
       );
     }
 
-    return <Text bold>{profile[name]}</Text>;
+    return <Typography bold>{profile[name]}</Typography>;
   }
 
   render() {
@@ -51,9 +53,9 @@ class Settings extends Component {
     return (
       <Block>
         <Block flex={false} row center space="between" style={styles.header}>
-          <Text h1 bold>
+          <Typography h1 bold>
             Settings
-          </Text>
+          </Typography>
           <Button>
             <Image source={profile.avatar} style={styles.avatar} />
           </Button>
@@ -63,40 +65,40 @@ class Settings extends Component {
           <Block style={styles.inputs}>
             <Block row space="between" margin={[10, 0]} style={styles.inputRow}>
               <Block>
-                <Text gray2 style={{ marginBottom: 10 }}>
+                <Typography gray2 style={{ marginBottom: 10 }}>
                   Username
-                </Text>
+                </Typography>
                 {this.renderEdit("username")}
               </Block>
-              <Text
+              <Typography
                 medium
                 secondary
                 onPress={() => this.toggleEdit("username")}
               >
                 {editing === "username" ? "Save" : "Edit"}
-              </Text>
+              </Typography>
             </Block>
             <Block row space="between" margin={[10, 0]} style={styles.inputRow}>
               <Block>
-                <Text gray2 style={{ marginBottom: 10 }}>
+                <Typography gray2 style={{ marginBottom: 10 }}>
                   Location
-                </Text>
+                </Typography>
                 {this.renderEdit("location")}
               </Block>
-              <Text
+              <Typography
                 medium
                 secondary
                 onPress={() => this.toggleEdit("location")}
               >
                 {editing === "location" ? "Save" : "Edit"}
-              </Text>
+              </Typography>
             </Block>
             <Block row space="between" margin={[10, 0]} style={styles.inputRow}>
               <Block>
-                <Text gray2 style={{ marginBottom: 10 }}>
+                <Typography gray2 style={{ marginBottom: 10 }}>
                   E-mail
-                </Text>
-                <Text bold>{profile.email}</Text>
+                </Typography>
+                <Typography bold>{profile.email}</Typography>
               </Block>
             </Block>
           </Block>
@@ -105,9 +107,9 @@ class Settings extends Component {
 
           <Block style={styles.sliders}>
             <Block margin={[10, 0]}>
-              <Text gray2 style={{ marginBottom: 10 }}>
+              <Typography gray2 style={{ marginBottom: 10 }}>
                 Budget
-              </Text>
+              </Typography>
               <Slider
                 minimumValue={0}
                 maximumValue={1000}
@@ -119,14 +121,14 @@ class Settings extends Component {
                 value={this.state.budget}
                 onValueChange={(value) => this.setState({ budget: value })}
               />
-              <Text caption gray right>
+              <Typography caption gray right>
                 $1,000
-              </Text>
+              </Typography>
             </Block>
             <Block margin={[10, 0]}>
-              <Text gray2 style={{ marginBottom: 10 }}>
+              <Typography gray2 style={{ marginBottom: 10 }}>
                 Monthly Cap
-              </Text>
+              </Typography>
               <Slider
                 minimumValue={0}
                 maximumValue={5000}
@@ -138,9 +140,9 @@ class Settings extends Component {
                 value={this.state.monthly}
                 onValueChange={(value) => this.setState({ monthly: value })}
               />
-              <Text caption gray right>
+              <Typography caption gray right>
                 $5,000
-              </Text>
+              </Typography>
             </Block>
           </Block>
 
@@ -153,7 +155,7 @@ class Settings extends Component {
               space="between"
               style={{ marginBottom: theme.sizes.base * 2 }}
             >
-              <Text gray2>Notifications</Text>
+              <Typography gray2>Notifications</Typography>
               <Switch
                 value={this.state.notifications}
                 onValueChange={(value) =>
@@ -168,7 +170,7 @@ class Settings extends Component {
               space="between"
               style={{ marginBottom: theme.sizes.base * 2 }}
             >
-              <Text gray2>Newsletter</Text>
+              <Typography gray2>Newsletter</Typography>
               <Switch
                 value={this.state.newsletter}
                 onValueChange={(value) => this.setState({ newsletter: value })}
